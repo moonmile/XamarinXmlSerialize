@@ -61,6 +61,7 @@ namespace XamarinXmlSerialize.Android
             var file = System.IO.Path.Combine(documents, "mydata.xml");
             using (var stream = System.IO.File.OpenWrite(file))
             {
+                stream.SetLength(0);
                 se.Serialize(stream, _model);
             }
         }
@@ -78,7 +79,6 @@ namespace XamarinXmlSerialize.Android
             var file = System.IO.Path.Combine(documents, "mydata.xml");
             using (var stream = System.IO.File.OpenRead(file))
             {
-                stream.SetLength(0);
                 var m = se.Deserialize(stream) as MyData;
                 m.CopyTo(_model);
             }
