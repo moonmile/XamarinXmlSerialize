@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:Core="clr-namespace:XamarinXmlSerialize.Core;assembly=XamarinXmlSerialize.Core" 
+        mc:Ignorable="d" x:Class="XamarinXmlSerialize.WPF.MainWindow"
+        d:DataContext="{d:DesignInstance {x:Type Core:MyData}, IsDesignTimeCreatable=True}" 
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="109" Height="57" Click="ClickSave"/>
+        <Button Content="Load" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="109" Height="57" Click="ClickLoad"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="124,10,0,0" TextWrapping="Wrap" 
+			Text="{Binding UserName}" VerticalAlignment="Top" Width="170" 
+                 />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="124,38,0,0" TextWrapping="Wrap" 
+			Text="{Binding HighScore}" VerticalAlignment="Top" Width="170"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="124,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" 
+			Text="{Binding Modified}"/>
+
+    </Grid>
+</Window>
