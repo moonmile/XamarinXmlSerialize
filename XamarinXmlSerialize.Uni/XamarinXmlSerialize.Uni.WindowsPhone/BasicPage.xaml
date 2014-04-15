@@ -1,0 +1,47 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XamarinXmlSerialize.Uni"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Core="using:XamarinXmlSerialize.Core"
+    x:Class="XamarinXmlSerialize.Uni.BasicPage"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance Core:MyData, IsDesignTimeCreatable=True}"    
+    Loaded="pageRoot_Loaded"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- TitlePanel -->
+        <StackPanel Grid.Row="0" Margin="24,17,0,28">
+            <TextBlock Text="My Application" Style="{ThemeResource TitleTextBlockStyle}" Typography.Capitals="SmallCaps"/>
+            <TextBlock Text="page title" Margin="0,12,0,0" Style="{ThemeResource HeaderTextBlockStyle}"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot"/>
+        <Button 
+			Click="ClickLoad"
+			Content="Load" HorizontalAlignment="Left" Margin="209,276.833,0,0" Grid.Row="1" VerticalAlignment="Top" Height="120" Width="162" FontSize="40"/>
+        <Button 
+			Click="ClickSave"
+			Content="Save" HorizontalAlignment="Left" Margin="24,276.833,0,0" Grid.Row="1" VerticalAlignment="Top" Height="120" Width="162" FontSize="40"/>
+        <TextBox HorizontalAlignment="Left" Margin="24,9.833,0,0" Grid.Row="1" TextWrapping="Wrap" 
+			Text="{Binding UserName, Mode=TwoWay}" VerticalAlignment="Top" FontSize="30" Width="366" Height="57" 
+                 />
+        <TextBox HorizontalAlignment="Left" Margin="24,82.833,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding HighScore, Mode=TwoWay}" VerticalAlignment="Top" FontSize="30" Width="366" Height="53"/>
+        <TextBox HorizontalAlignment="Left" Margin="24,154.833,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Modified, Mode=TwoWay}" VerticalAlignment="Top" FontSize="30" Width="366" Height="63"/>
+    </Grid>
+</Page>
